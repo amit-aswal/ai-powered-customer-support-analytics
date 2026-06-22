@@ -297,3 +297,67 @@ The DuckDB database is created locally at:
 The database is not pushed to GitHub because the data folder is ignored. It can be recreated by running:
 
 `python src/sql/create_phase3_data_model.py`
+
+---
+
+## Phase 4: Exploratory Data Analysis and Business Insights
+
+Phase 4 converts the SQL analytics model into business insights, charts, and recommendations.
+
+### Objective
+
+The objective of Phase 4 is to analyze ticket volume, SLA performance, queue workload, ticket categories, agent workload, and monthly trends.
+
+### Key Activities
+
+- Generated executive KPI summary
+- Analyzed ticket status distribution
+- Identified high-volume support queues
+- Analyzed SLA breaches by priority
+- Compared agent workload
+- Identified top ticket categories
+- Created monthly ticket trend analysis
+- Created month-over-month growth analysis
+- Identified top SLA breach drivers
+- Created business recommendations
+
+### Phase 4 Outputs
+
+CSV reports were generated in:
+
+`reports/phase4/`
+
+Charts were generated in:
+
+`reports/phase4/charts/`
+
+Main insight report:
+
+`reports/phase4/phase4_eda_business_insights_report.md`
+
+### Charts Created
+
+- Ticket volume by status
+- Top 10 queues by ticket volume
+- Ticket volume by category
+- Monthly ticket volume trend
+- SLA breaches by priority
+- Top 10 agents by workload
+
+### Business Value
+
+Phase 4 helps support leadership understand:
+
+- How many tickets are being handled
+- Which queues have the highest workload
+- Which categories create the most support demand
+- Which priority groups breach SLA most often
+- Which agents have the highest workload
+- Which months have the highest ticket volume
+- Which operational areas need attention
+
+### Important Note
+
+Some operational fields used in the analysis were simulated in Phase 2 because the original dataset does not include real lifecycle fields such as ticket status, created date, resolved date, agent name, and SLA status.
+
+These fields are clearly documented as simulated fields.
