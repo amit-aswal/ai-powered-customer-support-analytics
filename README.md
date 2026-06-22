@@ -121,3 +121,83 @@ In Phase 2, the project will create business-ready fields such as:
 - agent_name
 - sla_status
 - cleaned_ticket_text
+
+---
+
+## Phase 2: Data Cleaning and Feature Engineering
+
+Phase 2 converts the raw bronze support ticket dataset into a cleaned and business-ready silver dataset.
+
+### Objective
+
+The objective of Phase 2 is to prepare the raw customer support ticket data for SQL modeling, KPI calculation, Power BI dashboarding, Streamlit app development, and future NLP/AI analysis.
+
+### Key Activities
+
+- Loaded raw data from the bronze layer
+- Standardized column names
+- Cleaned text fields such as subject, body, and answer
+- Created unique ticket IDs
+- Created cleaned categorical fields
+- Simulated ticket lifecycle fields
+- Simulated created and resolved dates
+- Calculated resolution time
+- Assigned simulated support agents
+- Created SLA targets and SLA status
+- Combined tag columns
+- Created rule-based ticket categories
+- Created data quality flags
+- Created validation checks for Phase 2
+
+### Silver Layer Outputs
+
+- `data/silver/support_tickets_silver.parquet`
+- `data/silver/support_tickets_silver.csv`
+
+### Phase 2 Reports
+
+- `reports/phase2/phase2_feature_engineering_report.md`
+- `reports/phase2/phase2_feature_engineering_summary.csv`
+- `reports/phase2/phase2_status_distribution.csv`
+- `reports/phase2/phase2_sla_distribution.csv`
+- `reports/phase2/phase2_ticket_category_distribution.csv`
+- `reports/phase2/phase2_data_validation_report.csv`
+- `reports/phase2/phase2_data_validation_report.md`
+
+### Data Dictionary
+
+- `docs/phase2_data_dictionary.md`
+
+### Important Note on Synthetic Fields
+
+The original dataset does not include operational fields such as ticket status, created date, resolved date, resolution time, assigned agent, or SLA status.
+
+These fields were engineered using reproducible simulation logic to create a realistic enterprise analytics environment.
+
+They are clearly flagged using:
+
+`is_operational_data_simulated = True`
+
+### Business Value
+
+After Phase 2, the dataset can support business questions such as:
+
+- How many tickets are open, closed, pending, or escalated?
+- What is the average resolution time?
+- Which tickets breached SLA?
+- Which support agents have more workload?
+- Which ticket categories are most common?
+- Which queues require operational attention?
+
+### Validation
+
+Phase 2 includes validation checks to ensure:
+
+- No rows were lost
+- Original raw columns were preserved
+- Original raw values were unchanged
+- Ticket IDs are unique
+- Date logic is valid
+- SLA logic is valid
+- Synthetic fields are clearly documented
+
