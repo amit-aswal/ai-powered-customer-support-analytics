@@ -1,0 +1,10 @@
+pandas
+numpy
+datasets
+pyarrow
+duckdb
+matplotlib
+jupyter
+python-dotenv
+pyyaml
+tabulate
