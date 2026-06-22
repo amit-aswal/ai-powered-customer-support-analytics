@@ -201,3 +201,99 @@ Phase 2 includes validation checks to ensure:
 - SLA logic is valid
 - Synthetic fields are clearly documented
 
+
+---
+
+## Phase 3: SQL Data Model and Analytics Layer
+
+Phase 3 converts the cleaned silver dataset into a SQL-based analytics model using DuckDB.
+
+### Objective
+
+The objective of Phase 3 is to design a business-ready star schema that supports executive KPIs, operational reporting, Power BI dashboards, and analytics engineering workflows.
+
+### Data Model
+
+The model follows a star schema design with one central fact table and multiple dimension tables.
+
+### Fact Table
+
+- `fact_support_tickets`
+
+### Dimension Tables
+
+- `dim_date`
+- `dim_queue`
+- `dim_priority`
+- `dim_language`
+- `dim_agent`
+- `dim_ticket_category`
+- `dim_status`
+- `dim_type`
+
+### Tools Used
+
+- DuckDB
+- SQL
+- Python
+- Pandas
+- Parquet
+
+### Key Activities
+
+- Loaded the silver dataset into DuckDB
+- Created date, queue, priority, language, agent, category, status, and type dimensions
+- Created the central support ticket fact table
+- Added foreign keys from fact table to dimension tables
+- Created KPI-ready flags such as is_open, is_closed, is_sla_met, and is_sla_breached
+- Generated SQL validation reports
+- Created business KPI query outputs
+
+### Business KPI Outputs
+
+- `reports/phase3/business_kpis/executive_kpi_summary.csv`
+- `reports/phase3/business_kpis/ticket_volume_by_status.csv`
+- `reports/phase3/business_kpis/queue_performance.csv`
+- `reports/phase3/business_kpis/priority_sla_performance.csv`
+- `reports/phase3/business_kpis/agent_performance.csv`
+- `reports/phase3/business_kpis/ticket_category_analysis.csv`
+- `reports/phase3/business_kpis/monthly_ticket_trend.csv`
+- `reports/phase3/business_kpis/mom_ticket_growth.csv`
+- `reports/phase3/business_kpis/language_distribution.csv`
+- `reports/phase3/business_kpis/top_sla_breach_drivers.csv`
+
+### SQL Scripts
+
+- `sql/analytics/phase3_business_kpi_queries.sql`
+
+### Python Scripts
+
+- `src/sql/create_phase3_data_model.py`
+- `src/sql/run_phase3_business_kpis.py`
+
+### Documentation
+
+- `docs/phase3_data_model_documentation.md`
+- `reports/phase3/phase3_sql_data_model_report.md`
+
+### Business Value
+
+After Phase 3, the project has a proper SQL analytics layer that supports:
+
+- Executive KPI reporting
+- Queue workload analysis
+- SLA compliance monitoring
+- Agent performance reporting
+- Ticket category analysis
+- Monthly trend analysis
+- Power BI dashboard preparation
+
+### Important Note
+
+The DuckDB database is created locally at:
+
+`data/gold/customer_support_analytics.duckdb`
+
+The database is not pushed to GitHub because the data folder is ignored. It can be recreated by running:
+
+`python src/sql/create_phase3_data_model.py`
