@@ -361,3 +361,74 @@ Phase 4 helps support leadership understand:
 Some operational fields used in the analysis were simulated in Phase 2 because the original dataset does not include real lifecycle fields such as ticket status, created date, resolved date, agent name, and SLA status.
 
 These fields are clearly documented as simulated fields.
+
+---
+
+## Phase 5: Power BI Dashboard Dataset Preparation
+
+Phase 5 prepares the project for Power BI dashboard development.
+
+### Objective
+
+The objective of Phase 5 is to create dashboard-ready CSV files, KPI summary tables, Power BI measure references, and dashboard planning documentation.
+
+### Key Activities
+
+- Created a dashboard-ready fact table for Power BI
+- Created KPI summary exports
+- Created queue performance dashboard data
+- Created SLA performance dashboard data
+- Created agent workload dashboard data
+- Created ticket category dashboard data
+- Created monthly trend dashboard data
+- Created Power BI DAX measure reference
+- Created dashboard page planning documentation
+
+### Power BI Export Folder
+
+Dashboard-ready files are created locally in:
+
+`data/gold/powerbi_exports/`
+
+Important files:
+
+- `powerbi_fact_support_tickets_dashboard.csv`
+- `powerbi_kpi_summary.csv`
+- `powerbi_status_summary.csv`
+- `powerbi_queue_summary.csv`
+- `powerbi_priority_summary.csv`
+- `powerbi_agent_summary.csv`
+- `powerbi_category_summary.csv`
+- `powerbi_monthly_summary.csv`
+- `powerbi_top_sla_breach_drivers.csv`
+
+### GitHub Report Files
+
+Preview summary files and documentation are stored in:
+
+`reports/phase5/`
+
+### Documentation
+
+- `reports/phase5/phase5_powerbi_dashboard_plan.md`
+- `reports/phase5/phase5_powerbi_measure_reference.md`
+- `reports/phase5/phase5_dashboard_dataset_preparation_report.md`
+
+### Business Value
+
+Phase 5 prepares the analytics layer for a business-facing dashboard that can help support leaders track:
+
+- Ticket volume
+- Open and closed tickets
+- SLA compliance
+- Queue workload
+- Agent workload
+- Ticket categories
+- Monthly ticket trends
+- SLA breach drivers
+
+### Important Note
+
+The main Power BI fact export is saved locally inside the ignored data folder and is not pushed to GitHub. The script can recreate it anytime by running:
+
+`python src/dashboard/prepare_phase5_powerbi_dataset.py`
