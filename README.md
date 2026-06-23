@@ -482,3 +482,32 @@ Possible future enhancements:
 * Add automated PDF executive reports
 * Add database refresh automation
 * Deploy dashboard and app online
+
+---
+
+### Phase 10: Streamlit Web App
+
+Created an interactive Streamlit web app to present the final project outputs in a browser.
+
+Key work:
+
+- Built a multi-page Streamlit app
+- Added executive KPI view
+- Added queue, SLA, agent, category, and monthly trend pages
+- Added NLP sentiment and urgency insights
+- Added business recommendations page
+- Added AI executive summary page
+- Added project overview page
+
+Important files:
+
+- `app/streamlit_app.py`
+- `docs/phase10_streamlit_app.md`
+
+Run command:
+
+`streamlit run app/streamlit_app.py`
+
+Business value:
+
+The Streamlit app makes the project easier to present because recruiters and reviewers can view the final analytics outputs through one interactive browser interface.

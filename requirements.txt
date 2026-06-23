@@ -8,3 +8,5 @@ jupyter
 python-dotenv
 pyyaml
 tabulate
+
+streamlit
