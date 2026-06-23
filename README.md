@@ -501,3 +501,93 @@ The dashboard helps support leaders understand:
 ### Important Note
 
 Some operational fields used in the dashboard were simulated in Phase 2 because the original dataset does not include real ticket lifecycle fields. These fields are clearly documented as simulated.
+
+---
+
+## Phase 7: NLP and Text Analytics
+
+Phase 7 adds a text analytics layer to the AI-Powered Customer Support Analytics Platform.
+
+### Objective
+
+The objective of Phase 7 is to analyze customer support ticket text and create NLP-based insights such as sentiment, urgency, keywords, and negative ticket samples.
+
+### Key Activities
+
+- Cleaned ticket text for NLP analysis
+- Created rule-based sentiment scores
+- Classified tickets into Positive, Negative, and Neutral sentiment
+- Created rule-based urgency scores
+- Classified tickets into Low, Medium, and High Urgency
+- Extracted top keywords from ticket text
+- Identified negative and high-urgency tickets
+- Created sentiment analysis by category and queue
+- Created urgency analysis by priority
+- Generated NLP charts and reports
+
+### NLP Features Created
+
+- `nlp_clean_text`
+- `sentiment_score`
+- `sentiment_label`
+- `urgency_score`
+- `urgency_label`
+- `word_count`
+- `has_urgency_keyword`
+
+### Phase 7 Reports
+
+Reports are stored in:
+
+`reports/phase7/`
+
+Important files:
+
+- `phase7_nlp_text_analytics_report.md`
+- `phase7_sentiment_distribution.csv`
+- `phase7_urgency_distribution.csv`
+- `phase7_sentiment_by_category.csv`
+- `phase7_sentiment_by_queue.csv`
+- `phase7_urgency_by_priority.csv`
+- `phase7_top_keywords_overall.csv`
+- `phase7_top_keywords_by_category.csv`
+- `phase7_top_negative_tickets.csv`
+- `phase7_text_quality_summary.csv`
+
+### Phase 7 Charts
+
+Charts are stored in:
+
+`reports/phase7/charts/`
+
+Charts created:
+
+- Sentiment distribution
+- Urgency distribution
+- Top 15 keywords
+- Negative sentiment by category
+
+### Gold Text Analytics Dataset
+
+The NLP-enhanced dataset is created locally in:
+
+`data/gold/text_analytics/`
+
+Important note: this folder is not pushed to GitHub because it contains large generated data files. The files can be recreated by running:
+
+`python src/nlp/run_phase7_text_analytics.py`
+
+### Business Value
+
+Phase 7 helps support leaders understand:
+
+- Which tickets have negative sentiment
+- Which tickets are high urgency
+- Which categories have more negative tickets
+- Which queues receive more negative tickets
+- Which keywords appear most often in support tickets
+- Which customer issues should be reviewed first
+
+### Important Note
+
+This phase uses transparent rule-based NLP for portfolio demonstration. In a production system, this logic can be upgraded using machine learning models, transformer-based NLP models, or LLM-based classification.
