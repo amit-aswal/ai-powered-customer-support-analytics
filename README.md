@@ -591,3 +591,59 @@ Phase 7 helps support leaders understand:
 ### Important Note
 
 This phase uses transparent rule-based NLP for portfolio demonstration. In a production system, this logic can be upgraded using machine learning models, transformer-based NLP models, or LLM-based classification.
+
+---
+
+## Phase 8: AI Executive Summary and Final Business Recommendations
+
+Phase 8 creates an AI-style executive summary and final business recommendation layer for the AI-Powered Customer Support Analytics Platform.
+
+### Objective
+
+The objective of Phase 8 is to combine SQL KPIs, EDA insights, Power BI dashboard findings, and NLP text analytics into a management-ready business summary.
+
+### Key Activities
+
+- Combined Phase 4 EDA outputs with Phase 7 NLP outputs
+- Created an AI-style executive summary report
+- Generated final business recommendations
+- Created a business impact report
+- Summarized recruiter-friendly project value
+- Connected technical outputs with real business decision-making
+
+### Phase 8 Outputs
+
+Reports are stored in:
+
+`reports/phase8/`
+
+Important files:
+
+- `phase8_ai_executive_summary.md`
+- `phase8_business_recommendations.csv`
+- `final_project_business_impact_report.md`
+
+### Business Value
+
+Phase 8 helps convert analytics outputs into business decisions by highlighting:
+
+- Key support workload findings
+- SLA performance risks
+- Queue workload risks
+- Top customer issue categories
+- Agent workload concerns
+- NLP sentiment and urgency insights
+- Final operational recommendations
+
+### Recruiter Value
+
+This phase makes the project easier to understand for recruiters because it clearly explains:
+
+- What business problem was solved
+- What insights were created
+- What decisions the dashboard can support
+- How Python, SQL, Power BI, NLP, and reporting were combined in one project
+
+### Important Note
+
+The executive summary is generated using rule-based logic from project outputs. It is designed to simulate how an AI reporting layer can convert analytics results into management-ready recommendations.
