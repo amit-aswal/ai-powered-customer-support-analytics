@@ -432,3 +432,72 @@ Phase 5 prepares the analytics layer for a business-facing dashboard that can he
 The main Power BI fact export is saved locally inside the ignored data folder and is not pushed to GitHub. The script can recreate it anytime by running:
 
 `python src/dashboard/prepare_phase5_powerbi_dataset.py`
+
+---
+
+## Phase 6: Power BI Dashboard
+
+Phase 6 builds the Power BI dashboard for the AI-Powered Customer Support Analytics Platform.
+
+### Objective
+
+The objective of Phase 6 is to convert the dashboard-ready dataset into a business-facing Power BI report for support operations monitoring.
+
+### Dashboard File
+
+The Power BI dashboard is saved at:
+
+`dashboards/powerbi/customer_support_analytics_dashboard.pbix`
+
+### Dashboard Pages
+
+The dashboard contains 6 pages:
+
+- Executive Overview
+- Queue Performance
+- SLA Performance
+- Agent Workload
+- Ticket Category Analysis
+- Monthly Trend Analysis
+
+### Key Metrics
+
+The dashboard tracks:
+
+- Total Tickets
+- Open Tickets
+- Closed Tickets
+- Pending Tickets
+- Escalated Tickets
+- Average Resolution Time
+- SLA Met Tickets
+- SLA Breached Tickets
+- SLA Compliance %
+- SLA Breach %
+
+### Dashboard Screenshots
+
+Dashboard screenshots are stored in:
+
+`reports/phase6/screenshots/`
+
+### Documentation
+
+- `docs/phase6_powerbi_dashboard_build_guide.md`
+- `reports/phase6/phase6_powerbi_dax_measures.md`
+- `reports/phase6/phase6_powerbi_dashboard_report.md`
+
+### Business Value
+
+The dashboard helps support leaders understand:
+
+- Overall support workload
+- Queue-level workload
+- SLA compliance and breach risk
+- Agent workload distribution
+- Most common ticket categories
+- Monthly support trends
+
+### Important Note
+
+Some operational fields used in the dashboard were simulated in Phase 2 because the original dataset does not include real ticket lifecycle fields. These fields are clearly documented as simulated.
