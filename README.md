@@ -2,648 +2,483 @@
 
 ## Project Overview
 
-This project is an end-to-end analytics and AI solution for customer support operations.
+This project is an end-to-end customer support analytics platform built using Python, SQL, DuckDB, Power BI, and NLP.
 
-Customer support teams receive thousands of tickets every day. Management needs visibility into ticket volume, support queues, customer sentiment, recurring complaints, SLA performance, and operational bottlenecks.
+The project uses a customer support ticket dataset with more than 61,000 tickets and converts raw ticket data into business-ready insights, SQL models, Power BI dashboards, sentiment analysis, urgency scoring, and AI-style executive recommendations.
 
-This project uses SQL, Python, NLP, Generative AI, Power BI, Streamlit, and automation to convert raw support ticket data into business insights.
-
-## Dataset
-
-The dataset used in this project is the Hugging Face Customer Support Tickets dataset:
-
-`Tobi-Bueck/customer-support-tickets`
-
-The dataset contains 61,765 customer support ticket records and 16 raw columns.
-
-Raw columns include:
-
-- subject
-- body
-- answer
-- type
-- queue
-- priority
-- language
-- version
-- tag_1 to tag_8
-
-## Phase 1: Data Understanding and Data Profiling
-
-The first phase focuses on understanding the raw customer support tickets dataset before applying cleaning, SQL modeling, NLP, AI, or dashboarding.
-
-### Key Activities
-
-- Loaded raw customer support ticket data from Hugging Face
-- Stored the original dataset in the bronze layer
-- Created column-level profiling report
-- Analyzed missing values
-- Checked possible duplicate tickets
-- Analyzed ticket distribution by type, queue, priority, and language
-- Profiled subject, body, and answer text length
-- Identified missing operational business fields
-- Created SQL profiling outputs using DuckDB
-
-### Business Value
-
-This phase ensures that all downstream analytics, dashboards, SQL metrics, and AI summaries are built on a clear understanding of the raw data.
-
-It also identifies which fields need to be engineered later for enterprise support analytics.
-
-### Key Finding
-
-The dataset is strong for ticket classification, support queue analysis, NLP, sentiment analysis, root cause analysis, and AI summarization.
-
-However, it does not include enterprise operational fields such as:
-
-- ticket_id
-- created_date
-- resolved_date
-- status
-- agent_name
-- resolution_time_hours
-- sla_status
-- sentiment
-- ticket_category
-
-These fields will be engineered in Phase 2.
-
-## Phase 1 Outputs
-
-### Bronze Layer
-
-- `data/bronze/support_tickets_raw.parquet`
-- `data/bronze/support_tickets_raw.csv`
-
-### Python Profiling Reports
-
-- `reports/column_profile.csv`
-- `reports/missing_values_report.csv`
-- `reports/categorical_distribution_report.csv`
-- `reports/text_length_profile.csv`
-- `reports/duplicate_report.csv`
-- `reports/business_gap_report.csv`
-- `reports/phase1_data_profile_report.md`
-
-### SQL Profiling Outputs
-
-- `reports/sql_outputs/sql_total_tickets.csv`
-- `reports/sql_outputs/sql_type_distribution.csv`
-- `reports/sql_outputs/sql_queue_distribution.csv`
-- `reports/sql_outputs/sql_priority_distribution.csv`
-- `reports/sql_outputs/sql_language_distribution.csv`
-- `reports/sql_outputs/sql_queue_priority_matrix.csv`
-- `reports/sql_outputs/sql_missing_text_fields.csv`
-- `reports/sql_outputs/sql_text_length_profile.csv`
-- `reports/sql_outputs/sql_top_queues_ranked.csv`
-
-## Tools Used in Phase 1
-
-- Python
-- Pandas
-- Hugging Face Datasets
-- PyArrow
-- DuckDB
-- SQL
-- VS Code
-
-## Next Phase
-
-Phase 2 will focus on Data Cleaning and Feature Engineering.
-
-In Phase 2, the project will create business-ready fields such as:
-
-- ticket_id
-- status
-- created_date
-- resolved_date
-- resolution_time_hours
-- agent_name
-- sla_status
-- cleaned_ticket_text
+The goal is to simulate how a real company can analyze support tickets to understand workload, SLA performance, queue bottlenecks, agent workload, customer issue categories, and text-based customer concerns.
 
 ---
 
-## Phase 2: Data Cleaning and Feature Engineering
+## Business Problem
 
-Phase 2 converts the raw bronze support ticket dataset into a cleaned and business-ready silver dataset.
+Customer support teams receive thousands of tickets across different queues, priorities, agents, and issue categories.
 
-### Objective
+Without an analytics system, support leaders may struggle to answer:
 
-The objective of Phase 2 is to prepare the raw customer support ticket data for SQL modeling, KPI calculation, Power BI dashboarding, Streamlit app development, and future NLP/AI analysis.
+* How many tickets are open, closed, pending, or escalated?
+* Which support queues are overloaded?
+* Which priorities breach SLA most often?
+* Which agents have the highest workload?
+* What are customers complaining about most?
+* Are negative or urgent tickets increasing?
+* Which business areas need immediate attention?
 
-### Key Activities
-
-- Loaded raw data from the bronze layer
-- Standardized column names
-- Cleaned text fields such as subject, body, and answer
-- Created unique ticket IDs
-- Created cleaned categorical fields
-- Simulated ticket lifecycle fields
-- Simulated created and resolved dates
-- Calculated resolution time
-- Assigned simulated support agents
-- Created SLA targets and SLA status
-- Combined tag columns
-- Created rule-based ticket categories
-- Created data quality flags
-- Created validation checks for Phase 2
-
-### Silver Layer Outputs
-
-- `data/silver/support_tickets_silver.parquet`
-- `data/silver/support_tickets_silver.csv`
-
-### Phase 2 Reports
-
-- `reports/phase2/phase2_feature_engineering_report.md`
-- `reports/phase2/phase2_feature_engineering_summary.csv`
-- `reports/phase2/phase2_status_distribution.csv`
-- `reports/phase2/phase2_sla_distribution.csv`
-- `reports/phase2/phase2_ticket_category_distribution.csv`
-- `reports/phase2/phase2_data_validation_report.csv`
-- `reports/phase2/phase2_data_validation_report.md`
-
-### Data Dictionary
-
-- `docs/phase2_data_dictionary.md`
-
-### Important Note on Synthetic Fields
-
-The original dataset does not include operational fields such as ticket status, created date, resolved date, resolution time, assigned agent, or SLA status.
-
-These fields were engineered using reproducible simulation logic to create a realistic enterprise analytics environment.
-
-They are clearly flagged using:
-
-`is_operational_data_simulated = True`
-
-### Business Value
-
-After Phase 2, the dataset can support business questions such as:
-
-- How many tickets are open, closed, pending, or escalated?
-- What is the average resolution time?
-- Which tickets breached SLA?
-- Which support agents have more workload?
-- Which ticket categories are most common?
-- Which queues require operational attention?
-
-### Validation
-
-Phase 2 includes validation checks to ensure:
-
-- No rows were lost
-- Original raw columns were preserved
-- Original raw values were unchanged
-- Ticket IDs are unique
-- Date logic is valid
-- SLA logic is valid
-- Synthetic fields are clearly documented
-
+This project solves this problem by creating a complete analytics workflow from raw ticket data to dashboard and executive recommendations.
 
 ---
 
-## Phase 3: SQL Data Model and Analytics Layer
+## Project Goal
 
-Phase 3 converts the cleaned silver dataset into a SQL-based analytics model using DuckDB.
+The goal of this project is to build a complete analytics system that can:
 
-### Objective
-
-The objective of Phase 3 is to design a business-ready star schema that supports executive KPIs, operational reporting, Power BI dashboards, and analytics engineering workflows.
-
-### Data Model
-
-The model follows a star schema design with one central fact table and multiple dimension tables.
-
-### Fact Table
-
-- `fact_support_tickets`
-
-### Dimension Tables
-
-- `dim_date`
-- `dim_queue`
-- `dim_priority`
-- `dim_language`
-- `dim_agent`
-- `dim_ticket_category`
-- `dim_status`
-- `dim_type`
-
-### Tools Used
-
-- DuckDB
-- SQL
-- Python
-- Pandas
-- Parquet
-
-### Key Activities
-
-- Loaded the silver dataset into DuckDB
-- Created date, queue, priority, language, agent, category, status, and type dimensions
-- Created the central support ticket fact table
-- Added foreign keys from fact table to dimension tables
-- Created KPI-ready flags such as is_open, is_closed, is_sla_met, and is_sla_breached
-- Generated SQL validation reports
-- Created business KPI query outputs
-
-### Business KPI Outputs
-
-- `reports/phase3/business_kpis/executive_kpi_summary.csv`
-- `reports/phase3/business_kpis/ticket_volume_by_status.csv`
-- `reports/phase3/business_kpis/queue_performance.csv`
-- `reports/phase3/business_kpis/priority_sla_performance.csv`
-- `reports/phase3/business_kpis/agent_performance.csv`
-- `reports/phase3/business_kpis/ticket_category_analysis.csv`
-- `reports/phase3/business_kpis/monthly_ticket_trend.csv`
-- `reports/phase3/business_kpis/mom_ticket_growth.csv`
-- `reports/phase3/business_kpis/language_distribution.csv`
-- `reports/phase3/business_kpis/top_sla_breach_drivers.csv`
-
-### SQL Scripts
-
-- `sql/analytics/phase3_business_kpi_queries.sql`
-
-### Python Scripts
-
-- `src/sql/create_phase3_data_model.py`
-- `src/sql/run_phase3_business_kpis.py`
-
-### Documentation
-
-- `docs/phase3_data_model_documentation.md`
-- `reports/phase3/phase3_sql_data_model_report.md`
-
-### Business Value
-
-After Phase 3, the project has a proper SQL analytics layer that supports:
-
-- Executive KPI reporting
-- Queue workload analysis
-- SLA compliance monitoring
-- Agent performance reporting
-- Ticket category analysis
-- Monthly trend analysis
-- Power BI dashboard preparation
-
-### Important Note
-
-The DuckDB database is created locally at:
-
-`data/gold/customer_support_analytics.duckdb`
-
-The database is not pushed to GitHub because the data folder is ignored. It can be recreated by running:
-
-`python src/sql/create_phase3_data_model.py`
+* Ingest raw customer support ticket data
+* Profile and validate data quality
+* Clean and engineer business-ready fields
+* Create SQL-based fact and dimension tables
+* Generate business KPI reports
+* Build Power BI dashboards
+* Perform NLP sentiment and urgency analysis
+* Generate executive summaries and business recommendations
 
 ---
 
-## Phase 4: Exploratory Data Analysis and Business Insights
+## Tech Stack
 
-Phase 4 converts the SQL analytics model into business insights, charts, and recommendations.
-
-### Objective
-
-The objective of Phase 4 is to analyze ticket volume, SLA performance, queue workload, ticket categories, agent workload, and monthly trends.
-
-### Key Activities
-
-- Generated executive KPI summary
-- Analyzed ticket status distribution
-- Identified high-volume support queues
-- Analyzed SLA breaches by priority
-- Compared agent workload
-- Identified top ticket categories
-- Created monthly ticket trend analysis
-- Created month-over-month growth analysis
-- Identified top SLA breach drivers
-- Created business recommendations
-
-### Phase 4 Outputs
-
-CSV reports were generated in:
-
-`reports/phase4/`
-
-Charts were generated in:
-
-`reports/phase4/charts/`
-
-Main insight report:
-
-`reports/phase4/phase4_eda_business_insights_report.md`
-
-### Charts Created
-
-- Ticket volume by status
-- Top 10 queues by ticket volume
-- Ticket volume by category
-- Monthly ticket volume trend
-- SLA breaches by priority
-- Top 10 agents by workload
-
-### Business Value
-
-Phase 4 helps support leadership understand:
-
-- How many tickets are being handled
-- Which queues have the highest workload
-- Which categories create the most support demand
-- Which priority groups breach SLA most often
-- Which agents have the highest workload
-- Which months have the highest ticket volume
-- Which operational areas need attention
-
-### Important Note
-
-Some operational fields used in the analysis were simulated in Phase 2 because the original dataset does not include real lifecycle fields such as ticket status, created date, resolved date, agent name, and SLA status.
-
-These fields are clearly documented as simulated fields.
+| Area                  | Tools Used                                                |
+| --------------------- | --------------------------------------------------------- |
+| Programming           | Python                                                    |
+| Data Processing       | Pandas, NumPy                                             |
+| Data Source           | Hugging Face Dataset                                      |
+| Storage               | CSV, Parquet                                              |
+| SQL Engine            | DuckDB                                                    |
+| Data Modeling         | Star Schema, Fact and Dimension Tables                    |
+| Business Intelligence | Power BI                                                  |
+| NLP                   | Rule-based Sentiment, Urgency Scoring, Keyword Extraction |
+| Visualization         | Matplotlib, Power BI                                      |
+| Version Control       | Git, GitHub                                               |
+| Documentation         | Markdown                                                  |
 
 ---
 
-## Phase 5: Power BI Dashboard Dataset Preparation
+## Project Architecture
 
-Phase 5 prepares the project for Power BI dashboard development.
+```text
+Raw Hugging Face Dataset
+        ↓
+Bronze Layer
+Raw ticket data stored as CSV and Parquet
+        ↓
+Silver Layer
+Cleaned and feature-engineered ticket data
+        ↓
+Gold Layer
+DuckDB SQL model and Power BI exports
+        ↓
+Business KPI Reports
+SQL-based operational metrics
+        ↓
+EDA and Business Insights
+Charts, summaries, and recommendations
+        ↓
+Power BI Dashboard
+Executive and operational reporting
+        ↓
+NLP Layer
+Sentiment, urgency, and keyword analysis
+        ↓
+AI Executive Summary
+Final business recommendations
+```
 
-### Objective
+---
 
-The objective of Phase 5 is to create dashboard-ready CSV files, KPI summary tables, Power BI measure references, and dashboard planning documentation.
+## Completed Project Phases
 
-### Key Activities
+### Phase 1: Data Understanding and Profiling
 
-- Created a dashboard-ready fact table for Power BI
-- Created KPI summary exports
-- Created queue performance dashboard data
-- Created SLA performance dashboard data
-- Created agent workload dashboard data
-- Created ticket category dashboard data
-- Created monthly trend dashboard data
-- Created Power BI DAX measure reference
-- Created dashboard page planning documentation
-
-### Power BI Export Folder
-
-Dashboard-ready files are created locally in:
-
-`data/gold/powerbi_exports/`
+* Loaded customer support ticket dataset from Hugging Face
+* Stored raw data in the bronze layer
+* Created missing value, duplicate, categorical, and text length reports
+* Identified important business data gaps
 
 Important files:
 
-- `powerbi_fact_support_tickets_dashboard.csv`
-- `powerbi_kpi_summary.csv`
-- `powerbi_status_summary.csv`
-- `powerbi_queue_summary.csv`
-- `powerbi_priority_summary.csv`
-- `powerbi_agent_summary.csv`
-- `powerbi_category_summary.csv`
-- `powerbi_monthly_summary.csv`
-- `powerbi_top_sla_breach_drivers.csv`
-
-### GitHub Report Files
-
-Preview summary files and documentation are stored in:
-
-`reports/phase5/`
-
-### Documentation
-
-- `reports/phase5/phase5_powerbi_dashboard_plan.md`
-- `reports/phase5/phase5_powerbi_measure_reference.md`
-- `reports/phase5/phase5_dashboard_dataset_preparation_report.md`
-
-### Business Value
-
-Phase 5 prepares the analytics layer for a business-facing dashboard that can help support leaders track:
-
-- Ticket volume
-- Open and closed tickets
-- SLA compliance
-- Queue workload
-- Agent workload
-- Ticket categories
-- Monthly ticket trends
-- SLA breach drivers
-
-### Important Note
-
-The main Power BI fact export is saved locally inside the ignored data folder and is not pushed to GitHub. The script can recreate it anytime by running:
-
-`python src/dashboard/prepare_phase5_powerbi_dataset.py`
+* `src/ingestion/load_huggingface_dataset.py`
+* `src/profiling/profile_raw_tickets.py`
+* `reports/phase1_data_profile_report.md`
 
 ---
 
-## Phase 6: Power BI Dashboard
+### Phase 2: Data Cleaning and Feature Engineering
 
-Phase 6 builds the Power BI dashboard for the AI-Powered Customer Support Analytics Platform.
+* Cleaned ticket text fields
+* Created unique ticket IDs
+* Created status, created date, resolved date, resolution time, SLA status, and agent name
+* Created rule-based ticket categories
+* Created validation reports
+* Documented simulated fields clearly
 
-### Objective
+Important files:
 
-The objective of Phase 6 is to convert the dashboard-ready dataset into a business-facing Power BI report for support operations monitoring.
+* `src/features/feature_engineering.py`
+* `src/features/validate_phase2_data.py`
+* `docs/phase2_data_dictionary.md`
+* `reports/phase2/`
 
-### Dashboard File
+---
 
-The Power BI dashboard is saved at:
+### Phase 3: SQL Data Model and Analytics Layer
 
-`dashboards/powerbi/customer_support_analytics_dashboard.pbix`
+Created a DuckDB-based SQL analytics model using a star schema.
 
-### Dashboard Pages
+Fact table:
 
-The dashboard contains 6 pages:
+* `fact_support_tickets`
 
-- Executive Overview
-- Queue Performance
-- SLA Performance
-- Agent Workload
-- Ticket Category Analysis
-- Monthly Trend Analysis
+Dimension tables:
 
-### Key Metrics
+* `dim_date`
+* `dim_queue`
+* `dim_priority`
+* `dim_language`
+* `dim_agent`
+* `dim_ticket_category`
+* `dim_status`
+* `dim_type`
 
-The dashboard tracks:
+Important files:
 
-- Total Tickets
-- Open Tickets
-- Closed Tickets
-- Pending Tickets
-- Escalated Tickets
-- Average Resolution Time
-- SLA Met Tickets
-- SLA Breached Tickets
-- SLA Compliance %
-- SLA Breach %
+* `src/sql/create_phase3_data_model.py`
+* `src/sql/run_phase3_business_kpis.py`
+* `sql/analytics/phase3_business_kpi_queries.sql`
+* `docs/phase3_data_model_documentation.md`
+* `reports/phase3/`
 
-### Dashboard Screenshots
+---
+
+### Phase 4: EDA and Business Insights
+
+* Created executive KPI summary
+* Analyzed queue workload
+* Analyzed SLA breaches
+* Analyzed ticket categories
+* Analyzed agent workload
+* Created monthly trend analysis
+* Created business recommendations
+
+Important files:
+
+* `src/eda/run_phase4_eda.py`
+* `reports/phase4/phase4_eda_business_insights_report.md`
+* `reports/phase4/charts/`
+
+---
+
+### Phase 5: Power BI Dataset Preparation
+
+* Created dashboard-ready Power BI exports
+* Created KPI summary files
+* Created dashboard planning documentation
+* Created Power BI DAX measure reference
+
+Important files:
+
+* `src/dashboard/prepare_phase5_powerbi_dataset.py`
+* `reports/phase5/phase5_powerbi_dashboard_plan.md`
+* `reports/phase5/phase5_powerbi_measure_reference.md`
+
+---
+
+### Phase 6: Power BI Dashboard
+
+Built a complete Power BI dashboard with 6 pages:
+
+1. Executive Overview
+2. Queue Performance
+3. SLA Performance
+4. Agent Workload
+5. Ticket Category Analysis
+6. Monthly Trend Analysis
+
+Important files:
+
+* `dashboards/powerbi/customer_support_analytics_dashboard.pbix`
+* `docs/phase6_powerbi_dashboard_build_guide.md`
+* `reports/phase6/screenshots/`
+* `reports/phase6/phase6_powerbi_dashboard_report.md`
+
+---
+
+### Phase 7: NLP and Text Analytics
+
+* Created cleaned NLP text
+* Created sentiment scores and sentiment labels
+* Created urgency scores and urgency labels
+* Extracted top keywords
+* Identified negative tickets
+* Created sentiment by category and queue
+* Created urgency by priority
+
+Important files:
+
+* `src/nlp/run_phase7_text_analytics.py`
+* `reports/phase7/phase7_nlp_text_analytics_report.md`
+* `reports/phase7/charts/`
+
+---
+
+### Phase 8: AI Executive Summary and Recommendations
+
+* Combined EDA outputs and NLP outputs
+* Created AI-style executive summary
+* Created final business recommendations
+* Created final business impact report
+
+Important files:
+
+* `src/reporting/generate_phase8_executive_summary.py`
+* `reports/phase8/phase8_ai_executive_summary.md`
+* `reports/phase8/phase8_business_recommendations.csv`
+* `reports/phase8/final_project_business_impact_report.md`
+
+---
+
+## Power BI Dashboard Preview
 
 Dashboard screenshots are stored in:
 
 `reports/phase6/screenshots/`
 
-### Documentation
+Screenshots included:
 
-- `docs/phase6_powerbi_dashboard_build_guide.md`
-- `reports/phase6/phase6_powerbi_dax_measures.md`
-- `reports/phase6/phase6_powerbi_dashboard_report.md`
-
-### Business Value
-
-The dashboard helps support leaders understand:
-
-- Overall support workload
-- Queue-level workload
-- SLA compliance and breach risk
-- Agent workload distribution
-- Most common ticket categories
-- Monthly support trends
-
-### Important Note
-
-Some operational fields used in the dashboard were simulated in Phase 2 because the original dataset does not include real ticket lifecycle fields. These fields are clearly documented as simulated.
+* Executive Overview
+* Queue Performance
+* SLA Performance
+* Agent Workload
+* Ticket Category Analysis
+* Monthly Trend Analysis
 
 ---
 
-## Phase 7: NLP and Text Analytics
+## Key Business KPIs
 
-Phase 7 adds a text analytics layer to the AI-Powered Customer Support Analytics Platform.
+The project tracks:
 
-### Objective
-
-The objective of Phase 7 is to analyze customer support ticket text and create NLP-based insights such as sentiment, urgency, keywords, and negative ticket samples.
-
-### Key Activities
-
-- Cleaned ticket text for NLP analysis
-- Created rule-based sentiment scores
-- Classified tickets into Positive, Negative, and Neutral sentiment
-- Created rule-based urgency scores
-- Classified tickets into Low, Medium, and High Urgency
-- Extracted top keywords from ticket text
-- Identified negative and high-urgency tickets
-- Created sentiment analysis by category and queue
-- Created urgency analysis by priority
-- Generated NLP charts and reports
-
-### NLP Features Created
-
-- `nlp_clean_text`
-- `sentiment_score`
-- `sentiment_label`
-- `urgency_score`
-- `urgency_label`
-- `word_count`
-- `has_urgency_keyword`
-
-### Phase 7 Reports
-
-Reports are stored in:
-
-`reports/phase7/`
-
-Important files:
-
-- `phase7_nlp_text_analytics_report.md`
-- `phase7_sentiment_distribution.csv`
-- `phase7_urgency_distribution.csv`
-- `phase7_sentiment_by_category.csv`
-- `phase7_sentiment_by_queue.csv`
-- `phase7_urgency_by_priority.csv`
-- `phase7_top_keywords_overall.csv`
-- `phase7_top_keywords_by_category.csv`
-- `phase7_top_negative_tickets.csv`
-- `phase7_text_quality_summary.csv`
-
-### Phase 7 Charts
-
-Charts are stored in:
-
-`reports/phase7/charts/`
-
-Charts created:
-
-- Sentiment distribution
-- Urgency distribution
-- Top 15 keywords
-- Negative sentiment by category
-
-### Gold Text Analytics Dataset
-
-The NLP-enhanced dataset is created locally in:
-
-`data/gold/text_analytics/`
-
-Important note: this folder is not pushed to GitHub because it contains large generated data files. The files can be recreated by running:
-
-`python src/nlp/run_phase7_text_analytics.py`
-
-### Business Value
-
-Phase 7 helps support leaders understand:
-
-- Which tickets have negative sentiment
-- Which tickets are high urgency
-- Which categories have more negative tickets
-- Which queues receive more negative tickets
-- Which keywords appear most often in support tickets
-- Which customer issues should be reviewed first
-
-### Important Note
-
-This phase uses transparent rule-based NLP for portfolio demonstration. In a production system, this logic can be upgraded using machine learning models, transformer-based NLP models, or LLM-based classification.
+* Total tickets
+* Open tickets
+* Closed tickets
+* Pending tickets
+* Escalated tickets
+* Average resolution time
+* SLA met tickets
+* SLA breached tickets
+* SLA compliance percentage
+* SLA breach percentage
+* Queue workload
+* Agent workload
+* Ticket category distribution
+* Monthly ticket trends
+* Sentiment distribution
+* Urgency distribution
 
 ---
 
-## Phase 8: AI Executive Summary and Final Business Recommendations
+## Business Value
 
-Phase 8 creates an AI-style executive summary and final business recommendation layer for the AI-Powered Customer Support Analytics Platform.
+This project helps support leaders:
 
-### Objective
+* Monitor customer support workload
+* Identify overloaded queues
+* Track SLA performance
+* Find recurring customer issue categories
+* Analyze agent workload
+* Detect negative and urgent tickets
+* Understand monthly ticket trends
+* Generate management-ready recommendations
+* Reduce manual reporting effort
 
-The objective of Phase 8 is to combine SQL KPIs, EDA insights, Power BI dashboard findings, and NLP text analytics into a management-ready business summary.
+---
 
-### Key Activities
+## How to Run the Project
 
-- Combined Phase 4 EDA outputs with Phase 7 NLP outputs
-- Created an AI-style executive summary report
-- Generated final business recommendations
-- Created a business impact report
-- Summarized recruiter-friendly project value
-- Connected technical outputs with real business decision-making
+### 1. Create and activate virtual environment
 
-### Phase 8 Outputs
+```powershell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+```
 
-Reports are stored in:
+### 2. Install dependencies
 
-`reports/phase8/`
+```powershell
+pip install -r requirements.txt
+```
 
-Important files:
+### 3. Run data ingestion
 
-- `phase8_ai_executive_summary.md`
-- `phase8_business_recommendations.csv`
-- `final_project_business_impact_report.md`
+```powershell
+python src/ingestion/load_huggingface_dataset.py
+```
 
-### Business Value
+### 4. Run raw data profiling
 
-Phase 8 helps convert analytics outputs into business decisions by highlighting:
+```powershell
+python src/profiling/profile_raw_tickets.py
+```
 
-- Key support workload findings
-- SLA performance risks
-- Queue workload risks
-- Top customer issue categories
-- Agent workload concerns
-- NLP sentiment and urgency insights
-- Final operational recommendations
+### 5. Run feature engineering
 
-### Recruiter Value
+```powershell
+python src/features/feature_engineering.py
+```
 
-This phase makes the project easier to understand for recruiters because it clearly explains:
+### 6. Run Phase 2 validation
 
-- What business problem was solved
-- What insights were created
-- What decisions the dashboard can support
-- How Python, SQL, Power BI, NLP, and reporting were combined in one project
+```powershell
+python src/features/validate_phase2_data.py
+```
 
-### Important Note
+### 7. Create SQL data model
 
-The executive summary is generated using rule-based logic from project outputs. It is designed to simulate how an AI reporting layer can convert analytics results into management-ready recommendations.
+```powershell
+python src/sql/create_phase3_data_model.py
+```
+
+### 8. Run business KPI queries
+
+```powershell
+python src/sql/run_phase3_business_kpis.py
+```
+
+### 9. Run EDA and business insights
+
+```powershell
+python src/eda/run_phase4_eda.py
+```
+
+### 10. Prepare Power BI dataset
+
+```powershell
+python src/dashboard/prepare_phase5_powerbi_dataset.py
+```
+
+### 11. Run NLP and text analytics
+
+```powershell
+python src/nlp/run_phase7_text_analytics.py
+```
+
+### 12. Generate executive summary
+
+```powershell
+python src/reporting/generate_phase8_executive_summary.py
+```
+
+---
+
+## Important Data Note
+
+The original dataset does not include operational lifecycle fields such as ticket status, created date, resolved date, resolution time, agent name, and SLA status.
+
+These fields were simulated in Phase 2 using documented logic to demonstrate how a real customer support analytics workflow would operate.
+
+The original raw data is preserved separately in the bronze layer.
+
+---
+
+## Repository Structure
+
+```text
+data/
+  bronze/
+  silver/
+  gold/
+
+src/
+  ingestion/
+  profiling/
+  features/
+  sql/
+  eda/
+  dashboard/
+  nlp/
+  reporting/
+
+sql/
+  analytics/
+  profiling/
+
+reports/
+  phase2/
+  phase3/
+  phase4/
+  phase5/
+  phase6/
+  phase7/
+  phase8/
+
+docs/
+dashboards/
+```
+
+---
+
+## Skills Demonstrated
+
+* Python scripting
+* Data ingestion
+* Data profiling
+* Data cleaning
+* Feature engineering
+* Data validation
+* SQL analytics
+* DuckDB data modeling
+* Star schema design
+* KPI reporting
+* EDA and business insights
+* Power BI dashboarding
+* DAX measures
+* NLP sentiment analysis
+* Urgency scoring
+* Keyword extraction
+* Executive reporting
+* Git and GitHub workflow
+
+---
+
+## Resume Summary
+
+Built an end-to-end AI-powered customer support analytics platform using Python, SQL, DuckDB, Power BI, and NLP to analyze 61K+ support tickets and generate business KPIs, dashboards, sentiment insights, urgency scores, and executive recommendations.
+
+---
+
+## Project Status
+
+Completed:
+
+* Data ingestion
+* Data profiling
+* Feature engineering
+* Data validation
+* SQL model
+* Business KPI reports
+* EDA insights
+* Power BI dashboard
+* NLP text analytics
+* AI-style executive summary
+* Final business recommendations
+
+---
+
+## Future Improvements
+
+Possible future enhancements:
+
+* Add Streamlit web application
+* Allow CSV upload for dynamic analysis
+* Add transformer-based sentiment analysis
+* Add LLM-powered ticket summarization
+* Add automated PDF executive reports
+* Add database refresh automation
+* Deploy dashboard and app online
