@@ -1,0 +1,14 @@
+priority_clean,urgency_label,ticket_count
+critical,Medium Urgency,1907
+critical,High Urgency,7
+high,Low Urgency,14753
+high,Medium Urgency,6381
+high,High Urgency,791
+low,Low Urgency,12420
+low,Medium Urgency,338
+low,High Urgency,7
+medium,Low Urgency,17498
+medium,Medium Urgency,5792
+medium,High Urgency,88
+very_low,Low Urgency,1779
+very_low,Medium Urgency,4

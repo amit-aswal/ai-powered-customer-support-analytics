@@ -1,0 +1,81 @@
+ticket_category,keyword,frequency
+Account Issues,die,300
+Account Issues,issue,287
+Account Issues,data,263
+Account Issues,problem,256
+Account Issues,account,242
+Account Issues,integration,241
+Account Issues,und,234
+Account Issues,accounting,203
+Account Issues,der,192
+Account Issues,ich,190
+Delivery Issues,tracking,770
+Delivery Issues,der,474
+Delivery Issues,problem,472
+Delivery Issues,die,419
+Delivery Issues,und,404
+Delivery Issues,data,360
+Delivery Issues,analytics,327
+Delivery Issues,integration,308
+Delivery Issues,tools,292
+Delivery Issues,team,280
+Login Problems,security,1654
+Login Problems,data,1529
+Login Problems,access,1149
+Login Problems,medical,1036
+Login Problems,issue,849
+Login Problems,login,821
+Login Problems,unauthorized,679
+Login Problems,system,677
+Login Problems,due,637
+Login Problems,passwords,600
+Other,die,37057
+Other,der,32957
+Other,und,32241
+Other,ich,23807
+Other,problem,20828
+Other,sie,18364
+Other,das,15230
+Other,auf,14648
+Other,data,13986
+Other,mit,12487
+Payment Issues,billing,3034
+Payment Issues,payment,1844
+Payment Issues,issue,1276
+Payment Issues,information,963
+Payment Issues,provide,834
+Payment Issues,system,823
+Payment Issues,appreciate,769
+Payment Issues,details,736
+Payment Issues,problem,691
+Payment Issues,due,650
+Product Quality,quality,120
+Product Quality,data,109
+Product Quality,investment,72
+Product Quality,issue,69
+Product Quality,team,65
+Product Quality,content,63
+Product Quality,request,48
+Product Quality,problem,46
+Product Quality,assistance,46
+Product Quality,enhance,43
+Refund Issues,investment,758
+Refund Issues,data,653
+Refund Issues,analytics,476
+Refund Issues,returns,362
+Refund Issues,tools,316
+Refund Issues,provide,202
+Refund Issues,appreciate,192
+Refund Issues,strategies,177
+Refund Issues,return,173
+Refund Issues,information,171
+Technical Issues,die,17940
+Technical Issues,und,15966
+Technical Issues,software,14967
+Technical Issues,problem,13396
+Technical Issues,der,12994
+Technical Issues,data,12821
+Technical Issues,integration,12180
+Technical Issues,issue,10478
+Technical Issues,ich,9094
+Technical Issues,das,7575

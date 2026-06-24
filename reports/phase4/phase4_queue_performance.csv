@@ -1,0 +1,53 @@
+queue_clean,total_tickets,closed_tickets,open_tickets,pending_tickets,escalated_tickets,avg_resolution_time_hours,sla_breached_tickets,workload_rank
+technical support,14186,9905.0,2157.0,1442.0,682.0,36.48,2264.0,1
+product support,8960,6246.0,1341.0,930.0,443.0,50.23,1628.0,2
+customer service,7420,5207.0,1107.0,752.0,354.0,58.91,1362.0,3
+it support,5725,4056.0,840.0,553.0,276.0,39.52,930.0,4
+billing and payments,4874,3400.0,737.0,459.0,278.0,50.4,840.0,5
+returns and exchanges,2438,1695.0,380.0,246.0,117.0,60.13,432.0,6
+service outages and maintenance,1912,1380.0,260.0,187.0,85.0,31.68,309.0,7
+sales and pre-sales,1490,1040.0,219.0,165.0,66.0,62.16,296.0,8
+human resources,914,625.0,156.0,89.0,44.0,69.27,191.0,9
+general inquiry,668,465.0,108.0,65.0,30.0,74.97,137.0,10
+pets & animals/pet services,386,274.0,65.0,30.0,17.0,53.17,70.0,11
+news,383,266.0,58.0,50.0,9.0,48.56,63.0,12
+it & technology/security operations,365,261.0,51.0,34.0,19.0,55.36,63.0,13
+autos & vehicles/sales,364,255.0,57.0,38.0,14.0,51.76,59.0,14
+health/medical services,362,263.0,49.0,37.0,13.0,51.0,55.0,15
+home & garden/home improvement,361,253.0,49.0,44.0,15.0,49.17,53.0,16
+pets & animals/veterinary care,356,251.0,47.0,42.0,16.0,58.22,62.0,17
+health/mental health,347,266.0,35.0,33.0,13.0,56.87,70.0,18
+business & industrial/manufacturing,346,226.0,54.0,40.0,26.0,53.74,54.0,19
+online communities/forums,343,246.0,55.0,33.0,9.0,49.83,48.0,20
+shopping/e-commerce,341,242.0,53.0,34.0,12.0,47.64,52.0,21
+food & drink/groceries,332,231.0,46.0,36.0,19.0,59.61,59.0,22
+travel & transportation/land travel,331,219.0,64.0,33.0,15.0,57.59,57.0,23
+jobs & education/online courses,329,235.0,53.0,26.0,15.0,52.92,54.0,24
+finance/investments,327,230.0,55.0,31.0,11.0,48.98,55.0,25
+law & government/government services,326,232.0,59.0,25.0,10.0,50.51,46.0,26
+hobbies & leisure/collectibles,325,233.0,50.0,30.0,12.0,50.24,59.0,27
+online communities/social networks,322,236.0,40.0,29.0,17.0,53.44,58.0,28
+books & literature/non-fiction,320,237.0,40.0,30.0,13.0,52.08,56.0,29
+science/environmental science,318,217.0,56.0,26.0,19.0,45.76,51.0,30
+hobbies & leisure/crafts,316,223.0,52.0,28.0,13.0,64.4,61.0,31
+finance/personal finance,312,206.0,55.0,33.0,18.0,54.45,58.0,32
+science/research,310,218.0,48.0,32.0,12.0,55.75,51.0,33
+it & technology/network infrastructure,302,214.0,42.0,31.0,15.0,61.71,52.0,34
+games,301,206.0,38.0,44.0,13.0,59.57,45.0,35
+travel & transportation/air travel,300,202.0,51.0,30.0,17.0,48.03,42.0,36
+beauty & fitness/cosmetics,300,204.0,52.0,30.0,14.0,52.6,47.0,36
+arts & entertainment/music,298,215.0,45.0,25.0,13.0,46.39,38.0,38
+food & drink/restaurants,295,204.0,44.0,31.0,16.0,49.1,46.0,39
+law & government/legal advice,294,210.0,34.0,37.0,13.0,53.33,62.0,40
+it & technology/hardware support,293,208.0,41.0,31.0,13.0,47.4,39.0,41
+autos & vehicles/maintenance,293,205.0,54.0,23.0,11.0,62.41,56.0,41
+jobs & education/recruitment,290,195.0,46.0,35.0,14.0,50.39,63.0,43
+books & literature/fiction,289,212.0,47.0,17.0,13.0,48.9,45.0,44
+beauty & fitness/fitness training,289,192.0,52.0,29.0,16.0,42.88,35.0,44
+people & society/culture & society,283,183.0,47.0,40.0,13.0,52.86,43.0,46
+shopping/retail stores,283,188.0,49.0,35.0,11.0,51.23,44.0,46
+arts & entertainment/movies,262,195.0,33.0,20.0,14.0,55.63,45.0,48
+it & technology/software development,262,188.0,39.0,25.0,10.0,53.2,46.0,48
+home & garden/landscaping,256,166.0,46.0,34.0,10.0,45.33,33.0,50
+sports,236,162.0,42.0,24.0,8.0,57.3,39.0,51
+real estate,230,157.0,37.0,24.0,12.0,49.14,32.0,52

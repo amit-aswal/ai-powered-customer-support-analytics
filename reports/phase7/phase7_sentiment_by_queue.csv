@@ -1,0 +1,117 @@
+queue_clean,sentiment_label,ticket_count
+arts & entertainment/movies,Negative,203
+arts & entertainment/movies,Neutral,59
+arts & entertainment/music,Negative,222
+arts & entertainment/music,Neutral,76
+autos & vehicles/maintenance,Negative,203
+autos & vehicles/maintenance,Neutral,90
+autos & vehicles/sales,Negative,229
+autos & vehicles/sales,Neutral,135
+beauty & fitness/cosmetics,Negative,169
+beauty & fitness/cosmetics,Neutral,131
+beauty & fitness/fitness training,Negative,247
+beauty & fitness/fitness training,Neutral,42
+billing and payments,Neutral,1914
+billing and payments,Positive,1522
+billing and payments,Negative,1438
+books & literature/fiction,Negative,226
+books & literature/fiction,Neutral,63
+books & literature/non-fiction,Negative,204
+books & literature/non-fiction,Neutral,116
+business & industrial/manufacturing,Negative,234
+business & industrial/manufacturing,Neutral,112
+customer service,Neutral,3206
+customer service,Negative,2163
+customer service,Positive,2051
+finance/investments,Negative,216
+finance/investments,Neutral,111
+finance/personal finance,Negative,246
+finance/personal finance,Neutral,62
+finance/personal finance,Positive,4
+food & drink/groceries,Negative,256
+food & drink/groceries,Neutral,76
+food & drink/restaurants,Negative,245
+food & drink/restaurants,Neutral,50
+games,Negative,236
+games,Neutral,65
+general inquiry,Neutral,313
+general inquiry,Negative,193
+general inquiry,Positive,162
+health/medical services,Negative,280
+health/medical services,Neutral,82
+health/mental health,Negative,248
+health/mental health,Neutral,99
+hobbies & leisure/collectibles,Negative,239
+hobbies & leisure/collectibles,Neutral,86
+hobbies & leisure/crafts,Negative,227
+hobbies & leisure/crafts,Neutral,89
+home & garden/home improvement,Negative,246
+home & garden/home improvement,Neutral,115
+home & garden/landscaping,Negative,189
+home & garden/landscaping,Neutral,67
+human resources,Neutral,388
+human resources,Negative,360
+human resources,Positive,166
+it & technology/hardware support,Negative,250
+it & technology/hardware support,Neutral,43
+it & technology/network infrastructure,Negative,219
+it & technology/network infrastructure,Neutral,83
+it & technology/security operations,Negative,221
+it & technology/security operations,Neutral,144
+it & technology/software development,Negative,225
+it & technology/software development,Neutral,37
+it support,Negative,2550
+it support,Neutral,1958
+it support,Positive,1217
+jobs & education/online courses,Negative,248
+jobs & education/online courses,Neutral,81
+jobs & education/recruitment,Negative,219
+jobs & education/recruitment,Neutral,71
+law & government/government services,Negative,231
+law & government/government services,Neutral,95
+law & government/legal advice,Negative,169
+law & government/legal advice,Neutral,123
+law & government/legal advice,Positive,2
+news,Negative,274
+news,Neutral,109
+online communities/forums,Negative,293
+online communities/forums,Neutral,50
+online communities/social networks,Negative,217
+online communities/social networks,Neutral,105
+people & society/culture & society,Negative,212
+people & society/culture & society,Neutral,71
+pets & animals/pet services,Negative,285
+pets & animals/pet services,Neutral,101
+pets & animals/veterinary care,Negative,230
+pets & animals/veterinary care,Neutral,126
+product support,Negative,3757
+product support,Neutral,3478
+product support,Positive,1725
+real estate,Negative,168
+real estate,Neutral,62
+returns and exchanges,Neutral,1018
+returns and exchanges,Negative,856
+returns and exchanges,Positive,564
+sales and pre-sales,Neutral,795
+sales and pre-sales,Positive,393
+sales and pre-sales,Negative,302
+science/environmental science,Negative,235
+science/environmental science,Neutral,83
+science/research,Negative,187
+science/research,Neutral,123
+service outages and maintenance,Negative,847
+service outages and maintenance,Neutral,668
+service outages and maintenance,Positive,397
+shopping/e-commerce,Negative,293
+shopping/e-commerce,Neutral,48
+shopping/retail stores,Negative,231
+shopping/retail stores,Neutral,52
+sports,Negative,165
+sports,Neutral,71
+technical support,Negative,7104
+technical support,Neutral,4522
+technical support,Positive,2560
+travel & transportation/air travel,Negative,230
+travel & transportation/air travel,Neutral,70
+travel & transportation/land travel,Negative,267
+travel & transportation/land travel,Neutral,64

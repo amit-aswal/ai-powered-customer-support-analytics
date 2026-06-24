@@ -1,0 +1,2 @@
+total_tickets,tickets_with_subject,tickets_with_body,tickets_with_answer,avg_combined_text_length,min_combined_text_length,max_combined_text_length
+61765,56466.0,61763.0,48576.0,463.42,4,2284

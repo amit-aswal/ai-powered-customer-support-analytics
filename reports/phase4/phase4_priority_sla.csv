@@ -1,0 +1,6 @@
+priority_clean,total_tickets,sla_met_tickets,sla_breached_tickets,sla_compliance_percentage,avg_resolution_time_hours
+medium,23378,11948.0,4412.0,73.03,53.2
+low,12765,5950.0,2976.0,66.66,95.73
+high,21925,12608.0,2779.0,81.94,15.51
+very_low,1783,838.0,388.0,68.35,94.46
+critical,1914,1346.0,0.0,100.0,6.06

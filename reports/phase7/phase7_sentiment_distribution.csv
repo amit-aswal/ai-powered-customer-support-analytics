@@ -1,0 +1,4 @@
+sentiment_label,ticket_count,ticket_percentage
+Negative,29204,47.28
+Neutral,21798,35.29
+Positive,10763,17.43

@@ -1,0 +1,25 @@
+ticket_category_rule_based,sentiment_label,ticket_count
+Account Issues,Negative,209
+Account Issues,Neutral,156
+Account Issues,Positive,112
+Delivery Issues,Negative,274
+Delivery Issues,Positive,204
+Delivery Issues,Neutral,187
+Login Problems,Negative,704
+Login Problems,Neutral,511
+Login Problems,Positive,285
+Other,Negative,15581
+Other,Neutral,13949
+Other,Positive,5398
+Payment Issues,Negative,816
+Payment Issues,Positive,703
+Payment Issues,Neutral,532
+Product Quality,Neutral,46
+Product Quality,Negative,39
+Product Quality,Positive,29
+Refund Issues,Positive,208
+Refund Issues,Neutral,107
+Refund Issues,Negative,95
+Technical Issues,Negative,11486
+Technical Issues,Neutral,6310
+Technical Issues,Positive,3824

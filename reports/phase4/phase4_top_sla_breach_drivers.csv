@@ -1,0 +1,21 @@
+queue_clean,ticket_category,priority_clean,breached_tickets
+technical support,Technical Issues,high,563
+product support,Other,medium,432
+technical support,Other,high,427
+technical support,Technical Issues,medium,421
+product support,Technical Issues,medium,373
+customer service,Other,medium,345
+technical support,Other,medium,344
+customer service,Other,low,311
+customer service,Technical Issues,medium,244
+product support,Other,low,227
+it support,Technical Issues,medium,222
+it support,Other,medium,196
+customer service,Technical Issues,low,195
+technical support,Technical Issues,low,190
+technical support,Other,low,187
+product support,Technical Issues,low,179
+product support,Other,high,179
+it support,Other,high,178
+billing and payments,Other,medium,176
+billing and payments,Payment Issues,medium,166

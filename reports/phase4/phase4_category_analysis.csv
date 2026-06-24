@@ -1,0 +1,9 @@
+ticket_category,total_tickets,ticket_percentage,avg_resolution_time_hours,sla_breached_tickets,category_rank
+Other,34928,56.55,49.83,5938.0,1
+Technical Issues,21620,35.0,45.5,3735.0,2
+Payment Issues,2051,3.32,49.73,340.0,3
+Login Problems,1500,2.43,49.7,269.0,4
+Delivery Issues,665,1.08,49.04,101.0,5
+Account Issues,477,0.77,47.76,83.0,6
+Refund Issues,410,0.66,49.19,73.0,7
+Product Quality,114,0.18,47.0,16.0,8

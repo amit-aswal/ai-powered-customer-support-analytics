@@ -1,0 +1,2 @@
+total_tickets,avg_word_count,min_word_count,max_word_count,tickets_with_urgency_keywords,urgency_keyword_percentage,negative_tickets,positive_tickets,neutral_tickets
+61765,68.17,1,342,7219,11.69,29204,10763,21798
